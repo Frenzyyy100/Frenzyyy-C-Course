@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>C Programming Language — Full Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>C Programming — Full Course</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- ══ Sidebar ══ -->
-<div id="sidebar">
+<!-- Mobile sidebar backdrop -->
+<div id="backdrop"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar" aria-label="Course navigation">
   <div id="sidebar-header">
     <div class="sb-label">COURSE</div>
     <div class="sb-title">C Programming</div>
@@ -19,34 +22,58 @@
     <div id="progress-label">0 / 14 modules completed</div>
   </div>
   <div id="sidebar-search">
-    <input type="text" id="search-input" placeholder="Search modules…" autocomplete="off" spellcheck="false" aria-label="Search modules"/>
+    <input type="search" id="search-input" placeholder="Search modules…"
+           autocomplete="off" spellcheck="false" aria-label="Search modules"/>
   </div>
-  <div id="module-list" role="navigation" aria-label="Course modules"></div>
+  <nav id="module-list" aria-label="Modules"></nav>
   <div id="sidebar-footer">
-    <span id="footer-modules">14 modules · C89/C99/C11</span>
-    <div id="kb-hint">← → arrow keys to navigate</div>
+    <span id="footer-count">14 modules · C89/C99/C11</span>
+    <div id="kb-hint">← → keys to navigate</div>
   </div>
-</div>
+</aside>
 
-<!-- ══ Main ══ -->
+<!-- Main -->
 <div id="main">
-  <div id="topbar">
-    <button id="toggle-btn" title="Toggle sidebar (T)" aria-label="Toggle sidebar">◀</button>
+
+  <!-- Top bar -->
+  <header id="topbar">
+    <button id="toggle-btn" aria-label="Toggle sidebar" title="Toggle sidebar">
+      <span id="toggle-icon">☰</span>
+    </button>
     <div id="topbar-info">
       <span id="topbar-icon" aria-hidden="true"></span>
-      <div>
+      <div id="topbar-text">
         <div id="topbar-title"></div>
         <div id="topbar-sub"></div>
       </div>
     </div>
-    <div id="nav-btns">
-      <button class="nav-btn" id="prev-btn" title="Previous module (←)" aria-label="Previous module">← Prev</button>
-      <button class="nav-btn primary" id="next-btn" title="Next module (→)" aria-label="Next module">Next →</button>
+    <div id="topbar-nav">
+      <button class="nav-btn" id="prev-btn" aria-label="Previous module">← Prev</button>
+      <button class="nav-btn primary" id="next-btn" aria-label="Next module">Next →</button>
     </div>
-  </div>
+  </header>
+
+  <!-- Content -->
   <div id="content" role="main">
     <div id="content-inner"></div>
   </div>
+
+  <!-- Mobile bottom bar -->
+  <nav id="mobile-nav" aria-label="Mobile navigation">
+    <button class="mob-btn" id="mob-prev" aria-label="Previous module">
+      <span class="mob-icon">←</span>
+      <span class="mob-label">Prev</span>
+    </button>
+    <button class="mob-btn mob-center" id="mob-menu" aria-label="Module list">
+      <span class="mob-icon">⊞</span>
+      <span class="mob-label">Modules</span>
+    </button>
+    <button class="mob-btn primary" id="mob-next" aria-label="Next module">
+      <span class="mob-label">Next</span>
+      <span class="mob-icon">→</span>
+    </button>
+  </nav>
+
 </div>
 
 <script src="script.js"></script>
